@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Text, TextInput, View } from 'react-native';
-import { Button } from './components/ui/button';
-import { Card } from './components/ui/card';
+import { Button } from '../components/ui/button';
+import { Card } from '../components/ui/card';
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');

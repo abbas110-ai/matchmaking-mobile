@@ -1,16 +1,20 @@
-import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { Tabs } from 'expo-router';
+import React from 'react';
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#ef4444',
-        tabBarInactiveTintColor: '#6b7280',
+        tabBarActiveTintColor: '#e91e63', // Pink primary color
+        tabBarInactiveTintColor: '#9ca3af',
         tabBarStyle: {
           backgroundColor: '#ffffff',
           borderTopWidth: 1,
           borderTopColor: '#f3f4f6',
+          paddingBottom: 5,
+          paddingTop: 5,
+          height: 60,
         },
         headerShown: false,
       }}
@@ -19,8 +23,12 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Discover',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="heart" size={size} color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={focused ? 'heart' : 'heart-outline'}
+              color={color}
+              size={26}
+            />
           ),
         }}
       />
@@ -28,17 +36,14 @@ export default function TabLayout() {
         name="matches"
         options={{
           title: 'Matches',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="people" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="messages"
-        options={{
-          title: 'Messages',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="chatbubbles" size={size} color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={
+                focused ? 'chatbubble-ellipses' : 'chatbubble-ellipses-outline'
+              }
+              color={color}
+              size={26}
+            />
           ),
         }}
       />
@@ -46,8 +51,12 @@ export default function TabLayout() {
         name="profile"
         options={{
           title: 'Profile',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person" size={size} color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={focused ? 'person' : 'person-outline'}
+              color={color}
+              size={26}
+            />
           ),
         }}
       />
